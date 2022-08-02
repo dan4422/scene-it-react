@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './routes/Home';
+import { Routes, Route, Link, } from 'react-router-dom'
+import MainNavbar from './components/MainNavbar';
+import Watchlist from './routes/Watchlist';
+import { Container, Stack } from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Stack className='p-0 body vh-100'>
+    <Container fluid className='p-0 body'>
+      <MainNavbar />
+      {/*Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+      </Routes>
+    </Container>
+    </Stack>
+    </>
   );
 }
 
